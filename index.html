@@ -210,6 +210,66 @@
       font-size: 11px;
     }
 
+    .profiles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .profile-card {
+      min-width: 0;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-card h3 {
+      margin: 0;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: -.01em;
+    }
+
+    .profile-handle {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .contribution-link {
+      display: block;
+      margin-top: 13px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: var(--surface);
+      line-height: 0;
+    }
+
+    .contribution-chart {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 72px;
+      object-fit: contain;
+    }
+
+    .profile-repo-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--link);
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .profile-repo-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
     .repo-dot {
       width: 7px;
       height: 7px;
@@ -230,6 +290,7 @@
       main { padding-top: 34px; }
       section + section { margin-top: 38px; }
       .repo { padding: 16px; }
+      .profiles-grid { grid-template-columns: 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -282,6 +343,28 @@
             <p class="doi-line">DOI: <a href="https://doi.org/10.1016/j.compag.2026.111691" target="_blank" rel="noopener noreferrer">10.1016/j.compag.2026.111691</a></p>
             <span class="repo-meta"><span class="repo-dot" aria-hidden="true"></span> Public · Research implementation</span>
           </div>
+        </div>
+
+        <div class="profiles-grid" aria-label="Additional GitHub profiles">
+          <article class="profile-card">
+            <h3>Private projects</h3>
+            <span class="profile-handle">@0rekid</span>
+            <a class="contribution-link" href="https://github.com/0rekid" target="_blank" rel="noopener noreferrer" aria-label="Open 0rekid GitHub profile">
+              <img class="contribution-chart" src="https://github-contributions.vercel.app/api/v1/0rekid" alt="GitHub contribution chart for 0rekid" loading="lazy">
+            </a>
+            <a class="profile-repo-link" href="https://github.com/0rekid?tab=repositories" target="_blank" rel="noopener noreferrer">View repositories ↗</a>
+          </article>
+
+          <article class="profile-card">
+            <h3>Work-related</h3>
+            <span class="profile-handle">@rezaesCodes</span>
+            <a class="contribution-link" href="https://github.com/rezaesCodes" target="_blank" rel="noopener noreferrer" aria-label="Open rezaesCodes GitHub profile">
+              <img class="contribution-chart" src="https://github-contributions.vercel.app/api/v1/rezaesCodes" alt="GitHub contribution chart for rezaesCodes" loading="lazy">
+            </a>
+            <a class="profile-repo-link" href="https://github.com/rezaesCodes/fundamentals_of_AI_2026" target="_blank" rel="noopener noreferrer">fundamentals_of_AI_2026 ↗</a>
+            <br>
+            <a class="profile-repo-link" href="https://github.com/rezaesCodes?tab=repositories" target="_blank" rel="noopener noreferrer">All repositories ↗</a>
+          </article>
         </div>
       </section>
     </main>
