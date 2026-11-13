@@ -350,7 +350,7 @@
             <h3>Private projects</h3>
             <span class="profile-handle">@0rekid</span>
             <a class="contribution-link" href="https://github.com/0rekid" target="_blank" rel="noopener noreferrer" aria-label="Open 0rekid GitHub profile">
-              <img class="contribution-chart" src="https://github-contributions.vercel.app/api/v1/0rekid" alt="GitHub contribution chart for 0rekid" loading="lazy">
+              <img class="contribution-chart" src="https://ssr-contributions-svg.vercel.app/_/0rekid?chart=calendar&amp;format=svg&amp;theme=light" data-light-src="https://ssr-contributions-svg.vercel.app/_/0rekid?chart=calendar&amp;format=svg&amp;theme=light" data-dark-src="https://ssr-contributions-svg.vercel.app/_/0rekid?chart=calendar&amp;format=svg&amp;theme=dark" alt="GitHub contribution chart for 0rekid" loading="lazy">
             </a>
             <a class="profile-repo-link" href="https://github.com/0rekid?tab=repositories" target="_blank" rel="noopener noreferrer">View repositories ↗</a>
           </article>
@@ -359,7 +359,7 @@
             <h3>Work-related</h3>
             <span class="profile-handle">@rezaesCodes</span>
             <a class="contribution-link" href="https://github.com/rezaesCodes" target="_blank" rel="noopener noreferrer" aria-label="Open rezaesCodes GitHub profile">
-              <img class="contribution-chart" src="https://github-contributions.vercel.app/api/v1/rezaesCodes" alt="GitHub contribution chart for rezaesCodes" loading="lazy">
+              <img class="contribution-chart" src="https://ssr-contributions-svg.vercel.app/_/rezaesCodes?chart=calendar&amp;format=svg&amp;theme=light" data-light-src="https://ssr-contributions-svg.vercel.app/_/rezaesCodes?chart=calendar&amp;format=svg&amp;theme=light" data-dark-src="https://ssr-contributions-svg.vercel.app/_/rezaesCodes?chart=calendar&amp;format=svg&amp;theme=dark" alt="GitHub contribution chart for rezaesCodes" loading="lazy">
             </a>
             <a class="profile-repo-link" href="https://github.com/rezaesCodes/fundamentals_of_AI_2026" target="_blank" rel="noopener noreferrer">fundamentals_of_AI_2026 ↗</a>
             <br>
@@ -396,6 +396,10 @@
         button.setAttribute("aria-pressed", String(dark));
         button.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
         button.title = dark ? "Switch to light mode" : "Switch to dark mode";
+        document.querySelectorAll(".contribution-chart").forEach((chart) => {
+          const nextSrc = dark ? chart.dataset.darkSrc : chart.dataset.lightSrc;
+          if (nextSrc && chart.src !== nextSrc) chart.src = nextSrc;
+        });
         const themeColor = document.querySelector('meta[name="theme-color"]');
         if (themeColor) themeColor.setAttribute("content", dark ? "#171b1b" : "#fafaf8");
       }
