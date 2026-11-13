@@ -13,7 +13,7 @@ Personal academic homepage for **Reza Eskandari**.
 
 ## Deployment
 
-This repository is configured for GitHub Pages. To publish from the repository:
+To publish this static homepage with GitHub Pages:
 
 1. Open **Settings → Pages**.
 2. Under **Build and deployment**, choose **Deploy from a branch**.
