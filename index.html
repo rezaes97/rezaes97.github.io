@@ -128,7 +128,35 @@
 
     main { padding-top: 43px; }
 
-    section + section { margin-top: 47px; }
+    .main-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(360px, .85fr);
+      align-items: start;
+      gap: 34px;
+    }
+
+    .left-column,
+    .right-column {
+      min-width: 0;
+    }
+
+    .left-column section + section { margin-top: 47px; }
+
+    .right-column .profiles-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 0;
+    }
+
+    .profile-title-link {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    .profile-title-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
 
     h2 {
       margin: 0 0 13px;
@@ -331,10 +359,17 @@
       font-size: 11px;
     }
 
+    @media (max-width: 820px) {
+      .main-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 36px;
+      }
+    }
+
     @media (max-width: 600px) {
       .page { width: min(100% - 36px, var(--width)); padding-top: 36px; }
       main { padding-top: 34px; }
-      section + section { margin-top: 38px; }
+      .left-column section + section { margin-top: 38px; }
       .repo { padding: 16px; }
     }
 
@@ -361,63 +396,65 @@
     </header>
 
     <main>
-      <section aria-labelledby="about-heading">
-        <h2 id="about-heading">About</h2>
-        <p class="about">
-          I work on computer vision and machine learning, with particular interests in few-shot learning,
-          domain adaptation, and parameter-efficient adaptation of vision models. My research explores how
-          visual recognition systems can generalize to new tasks and environments when labeled data are limited.
-        </p>
-      </section>
+      <div class="main-grid">
+        <div class="left-column">
+          <section aria-labelledby="about-heading">
+            <h2 id="about-heading">About</h2>
+            <p class="about">
+              I work on computer vision and machine learning, with particular interests in few-shot learning,
+              domain adaptation, and parameter-efficient adaptation of vision models. My research explores how
+              visual recognition systems can generalize to new tasks and environments when labeled data are limited.
+            </p>
+          </section>
 
-      <section aria-labelledby="projects-heading">
-        <h2 id="projects-heading">Repositories</h2>
-        <div class="repo-list">
-          <div class="repo">
-            <a class="repo-name" href="https://github.com/rezaes97/two-stage-peft-cdfsl-plant-disease" target="_blank" rel="noopener noreferrer">two-stage-peft-cdfsl-plant-disease ↗</a>
-            <p class="repo-description">
-              Implementation of a two-stage parameter-efficient framework for cross-domain few-shot plant disease
-              recognition, combining offline domain adaptation with online few-shot adaptation.
-            </p>
-            <p class="repo-reference">
-              <span class="reference-label">Associated publication</span>
-              Khankalantary, S., &amp; Eskandari, M. R. (2026). “Dual-stage parameter-efficient tuning for in-field
-              plant disease few-shot classification.” <em>Computers and Electronics in Agriculture, 248</em>, Article 111691.
-              Published 1 July 2026.
-            </p>
-            <p class="doi-line">DOI: <a href="https://doi.org/10.1016/j.compag.2026.111691" target="_blank" rel="noopener noreferrer">10.1016/j.compag.2026.111691</a></p>
-            <span class="repo-meta"><span class="repo-dot" aria-hidden="true"></span> Public · Research implementation</span>
+          <section aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Repositories</h2>
+            <div class="repo-list">
+              <div class="repo">
+                <a class="repo-name" href="https://github.com/rezaes97/two-stage-peft-cdfsl-plant-disease" target="_blank" rel="noopener noreferrer">two-stage-peft-cdfsl-plant-disease ↗</a>
+                <p class="repo-description">
+                  Implementation of a two-stage parameter-efficient framework for cross-domain few-shot plant disease
+                  recognition, combining offline domain adaptation with online few-shot adaptation.
+                </p>
+                <p class="repo-reference">
+                  <span class="reference-label">Associated publication</span>
+                  Khankalantary, S., &amp; Eskandari, M. R. (2026). “Dual-stage parameter-efficient tuning for in-field
+                  plant disease few-shot classification.” <em>Computers and Electronics in Agriculture, 248</em>, Article 111691.
+                  Published 1 July 2026.
+                </p>
+                <p class="doi-line">DOI: <a href="https://doi.org/10.1016/j.compag.2026.111691" target="_blank" rel="noopener noreferrer">10.1016/j.compag.2026.111691</a></p>
+                <span class="repo-meta"><span class="repo-dot" aria-hidden="true"></span> Public · Research implementation</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="right-column" aria-label="Additional GitHub repositories">
+          <div class="profiles-grid">
+            <article class="profile-card">
+              <h3><a class="profile-title-link" href="https://github.com/0rekid?tab=repositories" target="_blank" rel="noopener noreferrer">My Projects Repo ↗</a></h3>
+              <span class="profile-handle">@0rekid</span>
+              <p class="repo-description">Personal projects, research experiments, and independent development work maintained under this account.</p>
+              <a class="contribution-link" href="https://github.com/0rekid" target="_blank" rel="noopener noreferrer" aria-label="Open 0rekid GitHub profile">
+                <div class="contribution-chart" data-username="0rekid" aria-label="GitHub contribution chart for 0rekid">
+                  <p class="chart-status">Loading contribution activity…</p>
+                </div>
+              </a>
+            </article>
+
+            <article class="profile-card">
+              <h3><a class="profile-title-link" href="https://github.com/rezaesCodes?tab=repositories" target="_blank" rel="noopener noreferrer">Work Repo ↗</a></h3>
+              <span class="profile-handle">@rezaesCodes</span>
+              <p class="repo-description">Work-related code and project materials maintained under this account.</p>
+              <a class="contribution-link" href="https://github.com/rezaesCodes" target="_blank" rel="noopener noreferrer" aria-label="Open rezaesCodes GitHub profile">
+                <div class="contribution-chart" data-username="rezaesCodes" aria-label="GitHub contribution chart for rezaesCodes">
+                  <p class="chart-status">Loading contribution activity…</p>
+                </div>
+              </a>
+            </article>
           </div>
-        </div>
-
-        <div class="profiles-grid" aria-label="Additional GitHub profiles">
-          <article class="profile-card">
-            <h3>My Own Projects</h3>
-            <span class="profile-handle">@0rekid</span>
-            <p class="repo-description">Personal projects, research experiments, and independent development work maintained under this account.</p>
-            <a class="contribution-link" href="https://github.com/0rekid" target="_blank" rel="noopener noreferrer" aria-label="Open 0rekid GitHub profile">
-              <div class="contribution-chart" data-username="0rekid" aria-label="GitHub contribution chart for 0rekid">
-                <p class="chart-status">Loading contribution activity…</p>
-              </div>
-            </a>
-            <a class="profile-repo-link" href="https://github.com/0rekid?tab=repositories" target="_blank" rel="noopener noreferrer">View repositories ↗</a>
-          </article>
-
-          <article class="profile-card">
-            <h3>Work-related Repository</h3>
-            <span class="profile-handle">@rezaesCodes</span>
-            <p class="repo-description">Work-related code and project materials, including the Fundamentals of AI course repository.</p>
-            <a class="contribution-link" href="https://github.com/rezaesCodes" target="_blank" rel="noopener noreferrer" aria-label="Open rezaesCodes GitHub profile">
-              <div class="contribution-chart" data-username="rezaesCodes" aria-label="GitHub contribution chart for rezaesCodes">
-                <p class="chart-status">Loading contribution activity…</p>
-              </div>
-            </a>
-            <a class="profile-repo-link" href="https://github.com/rezaesCodes/fundamentals_of_AI_2026" target="_blank" rel="noopener noreferrer">fundamentals_of_AI_2026 ↗</a>
-            <br>
-            <a class="profile-repo-link" href="https://github.com/rezaesCodes?tab=repositories" target="_blank" rel="noopener noreferrer">All repositories ↗</a>
-          </article>
-        </div>
-      </section>
+        </aside>
+      </div>
     </main>
 
     <footer>Reza Eskandari</footer>
